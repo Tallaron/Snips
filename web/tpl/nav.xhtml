@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <h:form class="navbar-form navbar-left">
+                <h:commandLink action="home" class="btn btn-default">
+                    <span class="glyphicon glyphicon-home"></span>
+                </h:commandLink>
+            </h:form>
+
+            <ui:fragment rendered="#{controller.user.loggedIn}">
+                <div class="navbar-form navbar-left">
+                    <h:form>
+                        <h:commandLink action="#{controller.newSnippet()}" class="btn btn-success">
+                            <span class="glyphicon glyphicon-plus"></span> #{loca.BTN_NEW_SNIPPET}
+                        </h:commandLink>
+                    </h:form>
+                </div>
+                <h:form class="navbar-form navbar-right">
+                    <h:commandLink action="#{controller.logout()}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-log-out" title="#{loca.BTN_LOGOUT}"></span>
+                    </h:commandLink>
+                </h:form>
+                <p class="navbar-text pull-right">#{loca.TXT_LOGGED_IN} #{controller.user.name}</p>
+            </ui:fragment>
+
+
+            <ui:fragment rendered="#{!controller.user.loggedIn}">
+                <h:form class="navbar-form navbar-left custom-form-fix">
+                    <div class="form-group">
+                        <h:inputText id="name" value="#{controller.user.name}" p:placeholder="#{loca.TXT_NAME}" class="form-control"/>
+                        <h:inputSecret id="password" value="#{controller.user.password}" p:placeholder="#{loca.TXT_PASSWORD}" class="form-control"/>
+                    </div>
+                    <h:commandButton value="#{loca.BTN_LOGIN}" action="#{controller.login()}" class="navbar-btn btn btn-default"/>
+                </h:form>
+
+                <h:form class="navbar-form navbar-left custom-form-fix">
+                    <h:commandButton value="#{loca.BTN_REGISTER}" action="#{controller.showRegForm()}" class="navbar-btn btn btn-default"/>
+                </h:form>
+            </ui:fragment>
+
+        </div>
+
+    </nav>
+</html>
+

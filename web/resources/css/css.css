@@ -1,0 +1,36 @@
+.btn-default  {
+    background-color: #eeee88;
+    border-color: #000000;
+}
+
+.btn-default:hover {
+    background-color: #ffffaa;
+    border-color: #ffff77;
+}
+
+.submit-btn {
+    margin-top: 10px;
+}
+
+.custom-disabled-link {
+    color: #aaaaaa !important;
+    cursor: default;
+}
+
+.custom-green {
+    /*color: #dff0d8;*/
+    color: #5c965d;
+}
+
+.custom-red {
+    /*color: #f2dede;*/
+    color: #c96462;
+}
+
+.custom-gray {
+    color: #999999;
+}
+
+.custom-form-fix {
+    margin: 0px;
+}

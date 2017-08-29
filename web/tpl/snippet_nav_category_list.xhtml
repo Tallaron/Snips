@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:cc="http://xmlns.jcp.org/jsp/jstl/core">
+
+
+
+    <div class="collapse#{controller.snippet.isSelectedLanguage(l.getKey()) ? ' in' : ''}" id="cat#{l.getKey().getName()}">
+        <ul class="nav nav-pills nav-stacked">
+            <cc:forEach items="#{l.getValue()}" var="c">
+                <li class="bg-warning">
+                    <a href="#" data-toggle="collapse" data-target="#snips#{l.getKey().getName()}#{c.getKey().getName()}" aria-expanded="false" aria-controls="snips#{l.getKey().getName()}#{c.getKey().getName()}">
+                        &nbsp;&nbsp;&nbsp;&nbsp;#{c.getKey().getName()}<span class="badge pull-right">#{c.getValue().size()}</span>
+                    </a>
+
+
+                    <ui:include src="/tpl/snippet_nav_snippet_list.xhtml"/>
+
+
+                </li>
+            </cc:forEach>
+        </ul>
+    </div>
+
+
+</html>
+

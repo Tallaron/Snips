@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="../tpl/default.xhtml">
+        <ui:define name="title">#{loca.TXT_TITLE_SHOW}</ui:define>
+        <ui:define name="nav"><ui:include src="/tpl/nav.xhtml"/></ui:define>
+        <ui:define name="left">
+            #{controller.loadSnippet()}
+            <ui:fragment rendered="#{controller.user.loggedIn}">
+                <ui:include src="/tpl/snippet_nav.xhtml"/>
+            </ui:fragment>
+        </ui:define>
+        <ui:define name="content">
+            <div class="page-header">
+                <strong>#{controller.snippet.name}</strong> - <small>#{controller.snippet.language.name}</small>
+                <h:form class="pull-right">
+                    <h:commandLink action="#{controller.deleteSnippet()}" class="btn btn-xs btn-danger">
+                        <span class="glyphicon glyphicon-trash"> #{loca.BTN_DELETE}</span>
+                    </h:commandLink>
+                </h:form>
+                <h:form class="pull-right">
+                    <h:commandLink action="#{controller.editSnippet()}" class="btn btn-xs btn-primary">
+                        <span class="glyphicon glyphicon-edit"> #{loca.BTN_EDIT}</span>
+                    </h:commandLink>
+                </h:form>
+            </div>
+            <div class="col-sm-12">
+                <pre>
+                    <code>#{controller.snippet.content}</code>
+                </pre>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+
+</html>
+

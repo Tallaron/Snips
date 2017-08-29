@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+    <div class="collapse#{(controller.snippet.isSelectedCategory(c.getKey()) &amp;&amp; controller.snippet.isSelectedLanguage(l.getKey())) ? ' in' : ''}" id="snips#{l.getKey().getName()}#{c.getKey().getName()}">
+
+        <ul class="nav nav-pills nav-stacked">
+            <ui:repeat value="#{c.getValue()}" var="s">
+                <li class="bg-#{s.isSelectedId(controller.snippet) ? 'success' : 'info'}">
+                    <h:link outcome="show_snippet">
+                        <c:param name="id" value="#{s.id}"/>
+                        <span class="nav-item-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#{s.name}</span>
+                    </h:link>
+                </li>
+            </ui:repeat>
+        </ul>
+
+    </div>
+
+
+
+</html>
+
