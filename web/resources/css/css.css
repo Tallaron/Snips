@@ -34,3 +34,12 @@
 .custom-form-fix {
     margin: 0px;
 }
+
+.custom-textarea {
+    height: 350px !important;
+}
+
+.custom-validator-message {
+    color: #f00;
+    font-weight: bold;
+}

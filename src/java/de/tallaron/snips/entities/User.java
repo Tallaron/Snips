@@ -42,8 +42,10 @@ public class User implements Serializable {
     
     public void addSnippet(Snippet s) {
         if(!snippets.contains(s)) {
-            snippets.add(s);
+            snippets.add(s); //ADD
             s.setUser(this);
+        } else {
+            snippets.set(snippets.indexOf(s), s); //UPDATE
         }
     }
     

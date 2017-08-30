@@ -18,12 +18,14 @@
                 <strong>#{controller.snippet.name}</strong> - <small>#{controller.snippet.language.name}</small>
                 <h:form class="pull-right">
                     <h:commandLink action="#{controller.deleteSnippet()}" class="btn btn-xs btn-danger">
-                        <span class="glyphicon glyphicon-trash"> #{loca.BTN_DELETE}</span>
+                        <span class="glyphicon glyphicon-trash"></span> 
+                        #{loca.BTN_DELETE}
                     </h:commandLink>
                 </h:form>
                 <h:form class="pull-right">
                     <h:commandLink action="#{controller.editSnippet()}" class="btn btn-xs btn-primary">
-                        <span class="glyphicon glyphicon-edit"> #{loca.BTN_EDIT}</span>
+                        <span class="glyphicon glyphicon-edit"></span> 
+                        #{loca.BTN_EDIT}
                     </h:commandLink>
                 </h:form>
             </div>

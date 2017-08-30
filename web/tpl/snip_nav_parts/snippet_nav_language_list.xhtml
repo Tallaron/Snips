@@ -5,7 +5,6 @@
       xmlns:cc="http://xmlns.jcp.org/jsp/jstl/core">
 
 
-
     <div class="collapse in" id="languages">
         <ul class="nav nav-pills nav-stacked">
             <cc:forEach items="#{controller.userNav}" var="l">
@@ -13,7 +12,7 @@
                     <a href="#" data-toggle="collapse" data-target="#cat#{l.getKey().getName()}" aria-expanded="false" aria-controls="cat#{l.getKey().getName()}">
                         <small><span class="glyphicon glyphicon-arrow-right"></span></small> #{l.getKey().getName()}<span class="badge pull-right">#{controller.countSnippetsInLanguage(l.getValue())}</span>
                     </a>
-                    <ui:include src="/tpl/snippet_nav_category_list.xhtml"/>                        
+                    <ui:include src="/tpl/snip_nav_parts/snippet_nav_category_list.xhtml"/>                        
 
                 </li>
             </cc:forEach>

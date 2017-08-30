@@ -2,23 +2,47 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
-    <div class="col-lg-6">
+    <div class="col-lg-8">
 
         <h:form>
             <h:inputHidden id="id" value="#{controller.snippet.id}"/>
-            <div class="form-group">
-                <h:inputText id="language" value="#{controller.snippet.language}" p:placeholder="#{loca.TXT_LANGUAGE}" class="form-control" converter="LanguageConverter"/>
+            <div class="form-group clearfix">
+                <label for="language" class="col-sm-3 control-label">#{loca.TXT_LANGUAGE}</label>
+                <div class="col-sm-9">
+                    <h:inputText required="true" id="language" value="#{controller.snippet.language}" requiredMessage="#{loca.ERROR_SNIPPET_LANGUAGE_REQUIRED}" p:placeholder="#{loca.TXT_LANGUAGE}" class="form-control" converter="LanguageConverter">
+                        <c:validator validatorId="LanguageValidator"/>
+                    </h:inputText>
+                    <h:message for="language" class="custom-validator-message"/>
+                </div>
             </div>
-            <div class="form-group">
-                <h:inputText id="category" value="#{controller.snippet.category}" p:placeholder="#{loca.TXT_CATEGORY}" class="form-control" converter="CategoryConverter"/>
+            <div class="form-group clearfix">
+                <label for="category" class="col-sm-3 control-label">#{loca.TXT_CATEGORY}</label>
+                <div class="col-sm-9">
+                    <h:inputText required="true" id="category" value="#{controller.snippet.category}" requiredMessage="#{loca.ERROR_SNIPPET_CATEGORY_REQUIRED}" p:placeholder="#{loca.TXT_CATEGORY}" class="form-control" converter="CategoryConverter">
+                        <c:validator validatorId="CategoryValidator"/>
+                    </h:inputText>
+                    <h:message for="category" class="custom-validator-message"/>
+                </div>
             </div>
-            <div class="form-group">
-                <h:inputText id="name" value="#{controller.snippet.name}" p:placeholder="#{loca.TXT_TOPIC}" class="form-control"/>
+            <div class="form-group clearfix">
+                <label for="name" class="col-sm-3 control-label">#{loca.TXT_NAME}</label>
+                <div class="col-sm-9">
+                    <h:inputText required="true" id="name" value="#{controller.snippet.name}" requiredMessage="#{loca.ERROR_SNIPPET_NAME_REQUIRED}" p:placeholder="#{loca.TXT_TOPIC}" class="form-control">
+                        <c:validator validatorId="SnippetNameValidator"/>
+                    </h:inputText>
+                    <h:message for="name" class="custom-validator-message"/>
+                </div>
             </div>
-            <div class="form-group">
-                <h:inputTextarea id="content" value="#{controller.snippet.content}" p:placeholder="#{loca.TXT_CODE}" class="form-control"></h:inputTextarea>
+            <hr/>
+            <div class="form-group clearfix">
+                <label for="content" class="control-label">#{loca.TXT_CODE}</label>
+                <h:inputTextarea id="content" value="#{controller.snippet.content}" p:placeholder="#{loca.TXT_CODE}" class="form-control custom-textarea">
+                    <c:validator validatorId="SnippetContentValidator"/>
+                </h:inputTextarea>
+                <h:message for="content" class="custom-validator-message"/>
             </div>
 
 

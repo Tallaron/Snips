@@ -5,6 +5,8 @@
  */
 package de.tallaron.snips.entities;
 
+import de.tallaron.snips.exceptions.SnipsCategoryIsNullException;
+import de.tallaron.snips.exceptions.SnipsLanguageIsNullException;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -88,7 +90,9 @@ public class Snippet implements Serializable {
         return language;
     }
 
-    public void setLanguage(Language language) {
+    public void setLanguage(Language language) throws SnipsLanguageIsNullException {
+        if(language == null)
+            throw new SnipsLanguageIsNullException();
         this.language = language;
     }
     
@@ -102,7 +106,9 @@ public class Snippet implements Serializable {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(Category category) throws SnipsCategoryIsNullException {
+        if(category == null)
+            throw new SnipsCategoryIsNullException();
         this.category = category;
     }
     

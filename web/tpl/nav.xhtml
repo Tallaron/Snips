@@ -3,8 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsf/core">
 
+    <c:view locale="#{snipsLocales.currentLocale}">
+    
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
 
@@ -13,6 +16,14 @@
                     <span class="glyphicon glyphicon-home"></span>
                 </h:commandLink>
             </h:form>
+            
+            <h:form class="navbar-form navbar-right">
+                <h:selectOneMenu value="#{snipsLocales.currentLocale}" onchange="submit()" class="form-control">
+                    <c:selectItems value="#{snipsLocales.availableLocales}" />
+                </h:selectOneMenu>
+            </h:form>            
+
+            
 
             <ui:fragment rendered="#{controller.user.loggedIn}">
                 <div class="navbar-form navbar-left">
@@ -44,9 +55,11 @@
                     <h:commandButton value="#{loca.BTN_REGISTER}" action="#{controller.showRegForm()}" class="navbar-btn btn btn-default"/>
                 </h:form>
             </ui:fragment>
+            
 
         </div>
 
     </nav>
+    </c:view>
 </html>
 

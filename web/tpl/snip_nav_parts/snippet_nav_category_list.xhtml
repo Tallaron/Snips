@@ -8,7 +8,6 @@
       xmlns:cc="http://xmlns.jcp.org/jsp/jstl/core">
 
 
-
     <div class="collapse#{controller.snippet.isSelectedLanguage(l.getKey()) ? ' in' : ''}" id="cat#{l.getKey().getName()}">
         <ul class="nav nav-pills nav-stacked">
             <cc:forEach items="#{l.getValue()}" var="c">
@@ -18,7 +17,7 @@
                     </a>
 
 
-                    <ui:include src="/tpl/snippet_nav_snippet_list.xhtml"/>
+                    <ui:include src="/tpl/snip_nav_parts/snippet_nav_snippet_list.xhtml"/>
 
 
                 </li>
