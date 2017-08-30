@@ -8,7 +8,7 @@
     <div class="collapse in" id="languages">
         <ul class="nav nav-pills nav-stacked">
             <cc:forEach items="#{controller.userNav}" var="l">
-                <li class="bg-danger">
+                <li class="custom-gray-bg">
                     <a href="#" data-toggle="collapse" data-target="#cat#{l.getKey().getName()}" aria-expanded="false" aria-controls="cat#{l.getKey().getName()}">
                         <small><span class="glyphicon glyphicon-arrow-right"></span></small> #{l.getKey().getName()}<span class="badge pull-right">#{controller.countSnippetsInLanguage(l.getValue())}</span>
                     </a>

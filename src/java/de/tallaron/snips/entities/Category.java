@@ -5,9 +5,12 @@
  */
 package de.tallaron.snips.entities;
 
+import de.tallaron.snips.exceptions.SnipsCategoryIsNullException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +41,11 @@ public class Category implements Serializable {
     public void addSnippet(Snippet s) {
         if(!snippets.contains(s)) {
             snippets.add(s);
-            s.setCategory(this);
+            try {
+                s.setCategory(this);
+            } catch (SnipsCategoryIsNullException ex) {
+                
+            }
         }
     }
     

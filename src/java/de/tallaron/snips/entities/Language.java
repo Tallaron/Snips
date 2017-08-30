@@ -5,9 +5,12 @@
  */
 package de.tallaron.snips.entities;
 
+import de.tallaron.snips.exceptions.SnipsLanguageIsNullException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +41,11 @@ public class Language implements Serializable {
     public void addSnippet(Snippet s) {
         if(!snippets.contains(s)) {
             snippets.add(s);
-            s.setLanguage(this);
+            try {
+                s.setLanguage(this);
+            } catch (SnipsLanguageIsNullException ex) {
+                
+            }
         }
     }
     
@@ -46,6 +53,10 @@ public class Language implements Serializable {
         if(snippets.contains(s)) {
             snippets.remove(s);
         }
+    }
+    
+    public String getSlug() {
+        return name.toLowerCase();
     }
     
     public List<Snippet> getSnippets() {

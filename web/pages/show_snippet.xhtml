@@ -30,11 +30,8 @@
                 </h:form>
             </div>
             <div class="col-sm-12">
-                <pre>
-                    <code>#{controller.snippet.content}</code>
-                </pre>
+                <pre class="line-numbers"><code class="language-#{controller.snippet.language.getSlug()}">#{controller.snippet.content}</code></pre>
             </div>
-
         </ui:define>
     </ui:composition>
 

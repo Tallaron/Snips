@@ -43,3 +43,7 @@
     color: #f00;
     font-weight: bold;
 }
+
+.custom-gray-bg {
+    background-color: #c8c8c8;
+}

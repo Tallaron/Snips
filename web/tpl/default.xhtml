@@ -7,14 +7,16 @@
     <h:head>
         <title><ui:insert name="title">#{loca.TXT_TITLE}</ui:insert></title>
         <h:outputStylesheet library="resources" name="css/bootstrap.css" />
-        <h:outputStylesheet library="resources" name="css/highlight/default.css" />
+        <!--<h:outputStylesheet library="resources" name="css/highlight/default.css" />-->
+        <h:outputStylesheet library="resources" name="css/prism.css" />
         <h:outputStylesheet library="resources" name="css/css.css" />
         <h:outputScript library="resources" name="js/jquery.min.js" />
         <h:outputScript library="resources" name="js/bootstrap.js" />
-        <h:outputScript library="resources" name="js/highlight.pack.js" />
+        <!--<h:outputScript library="resources" name="js/highlight.pack.js" />-->
+        <h:outputScript library="resources" name="js/prism.js" />
         <h:outputScript library="resources" name="js/js.js" />
         
-        <script>hljs.initHighlightingOnLoad();</script>
+        <!--<script>hljs.initHighlightingOnLoad();</script>-->
     </h:head>
 
     <h:body>
